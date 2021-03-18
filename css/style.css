@@ -27,30 +27,32 @@ header {
   margin-top: 100px ;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 2rem;
 }
 
+
 main {
+
+}
+
+
+#boxProfiles {
   display: flex;
+}
+
+#boxProfiles article {
   flex: 1;
-  /* align-items: center; */
-  justify-content: space-evenly;
-  background-color: grey;
-  text-align: center;
-  width: full;
-  margin: 50px auto;
-  padding: 1rem;
+  margin: 20px;
+  background-color: rgb(133, 215, 240);
+  padding: 10px;
+  border: 2px solid rgb(241, 202, 154);
+  border-radius: 10px;
+  border: 2px solid rgb(82, 80, 195);
 }
 
 main h2 {
   font-size: 2rem;
 }
-
-main p {
-  background-color: crimson;
-}
-
-
-
 
 h1 {
   font-size: 3rem;
@@ -63,7 +65,7 @@ h1 {
 /* table below */
 #store-container article {
   flex: 1;
-  margin: 20px;
+  margin: 200px;
   background-color: rgb(151, 167, 235);
   padding: 10px;
   border-radius: 10px;

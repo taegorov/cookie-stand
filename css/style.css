@@ -11,7 +11,8 @@ header {
   font-family: Tahoma, sans-serif;
   color: black;
   font-size: 3.5rem;
-  background-color: rgb(133, 215, 240);
+  background-color: rgb(241, 202, 154);
+  border: 3px solid rgb(133, 215, 240);
   display: flex;
   padding: 1rem;
   justify-content: space-evenly;
@@ -24,30 +25,45 @@ header {
 
 #salmon {
   display: flex;
-  margin-top: 100px ;
+  margin-top: 140px ;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 2rem;
 }
 
-
-main {
-
-}
-
-
 #boxProfiles {
   display: flex;
+  align-items: flex-start;
 }
 
 #boxProfiles article {
   flex: 1;
   margin: 20px;
-  background-color: rgb(133, 215, 240);
+  background-color: rgb(241, 202, 154);
   padding: 10px;
   border: 2px solid rgb(241, 202, 154);
-  border-radius: 10px;
-  border: 2px solid rgb(82, 80, 195);
+  border-radius: 5px;
+  border: 3px solid rgb(133, 215, 240);
+}
+
+#boxProfiles h3 {
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+#boxProfiles p, a {
+  color: rgb(121, 81, 104);
+  font-size: 1rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#boxProfiles img {
+  margin-top: 4rem;
+  max-width: 20rem;
+  /* max-height: 15rem; */
+  margin-left: 3rem;
+  /* margin-right: auto; */
 }
 
 main h2 {
@@ -59,13 +75,16 @@ h1 {
 }
 
 
-
-
-
 /* table below */
+
+#returnHome {
+  font-size: 3.5rem;
+  margin-top: 100px;
+}
+
 #store-container article {
   flex: 1;
-  margin: 200px;
+  margin: 100px;
   background-color: rgb(151, 167, 235);
   padding: 10px;
   border-radius: 10px;

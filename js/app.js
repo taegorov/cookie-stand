@@ -48,7 +48,8 @@ function CookieStand(location, hourlySales) {
 // display cookie stand data
 let renderHeader = function() {
 
-    // rows for the table
+// rows for the table
+// 'store-container' is the div id in HTML
     const profileContainer = document.getElementById('store-container');
     const article = createChild('article', profileContainer);
     const table = createChild('table', article, undefined, 'cookieTable');
@@ -78,7 +79,8 @@ CookieStand.prototype.render = function(){
     let cityTotal = 0;
     const table = document.getElementById('cookieTable');
  
-    // data row
+
+// data row (adds cookies sold into data cells)
     const dataRow = createChild('tr', table);
 
     createChild('td', dataRow, this.location);
@@ -92,6 +94,26 @@ CookieStand.prototype.render = function(){
     }
     
 }
+
+
+// Calculate hourly totals
+renderfooter = function () {
+    const table = document.getElementById('cookieTable');
+    const tr = createChild('tr', table, 'Hourly Total');
+    let total = 0;
+    for (let i = 0; i < timeSlots.length; i+= 1) {
+        let timeTotal = 0
+        for (let j = 0; j < CookieStand.stores.length; j+= 1) {
+            timeTotal += CookieStand.stores[j].hourlySales[i];
+
+        }
+        total += timeTotal;
+        // console.log(timeTotal);
+        createChild('td', tr, timeTotal);
+    }
+    createChild('td', tr, total);
+}
+
 
 
 // function for creating child
@@ -116,22 +138,25 @@ let dubai = new CookieStand('Dubai', hourlySales(11, 38, 3.7));
 let paris = new CookieStand('Paris', hourlySales(20, 38, 2.3));
 let lima = new CookieStand('Lima', hourlySales(2, 16, 4.6));
 
-// Hourly totals
-renderfooter = function () {
-    const table = document.getElementById('cookieTable');
-    const tr = createChild('tr', table, 'Hourly Total');
-    let total = 0;
-    for (let i = 0; i < timeSlots.length; i+= 1) {
-        let timeTotal = 0
-        for (let j = 0; j < CookieStand.stores.length; j+= 1) {
-            timeTotal += CookieStand.stores[j].hourlySales[i];
 
-        }
-        total += timeTotal;
-        // console.log(timeTotal);
-        createChild('td', tr, timeTotal);
-    }
-    createChild('td', tr, total);
+// add new location with form
+
+const cookieStandForm = document.getElementById('cookie-form');
+
+function addcookieStandHandler(event) {
+    event.preventDefault();
+
+    const newStandLocation = event.target.newStandLocation.value;
+    const newStandMinCookies = event.target.newStandMinCookies.value;
+    const newStandMaxCookies = event.target.newStandMaxCookies.value;
+    const avgCookiesSold = event.target.avgCookiesSold.value;
+
+    const newCookieStand = new CookieStand(newStandLocation, hourlySales(newStandMinCookies, newStandMaxCookies, avgCookiesSold));
+    CookieStand.push(newCookieStand);
+    table.innerHTML ='';
+    createHeaderRow();
+    createHeaderRow();
+    event.target.reset();
 }
 
 renderHeader();

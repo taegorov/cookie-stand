@@ -14,11 +14,17 @@
         <div id="returnHome">
             <a href="index.html">Return Home</a>
         </div>
-        <form>
+        <form id="cookie-form">
             <fieldset>
                 <legend>Add New Cookie Stand</legend>
                 <label for="newStandLocation">Location: </label>
                 <input name="newStandLocation" type="text" />
+                <label for="newStandMinCookies">Minimum Cookies per Hour: </label>
+                <input name="newStandMinCookies" type="text" />
+                <label for="newStandMaxCookies">Maximum Cookies per Hour: </label>
+                <input name="newStandMaxCookies" type="text" />
+                <label for="avgCookiesSold">Average # of Cookies Sold: </label>
+                <input name="avgCookiesSold" type="text" />
                 <button type="submit">Submit</button>
             </fieldset>
         </form>

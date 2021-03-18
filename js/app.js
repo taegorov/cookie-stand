@@ -25,13 +25,13 @@ function getRandomInt(min, max) {
 // hourly sales * random number
 function hourlySales(min, max, avgcookies) {
     let arraySales = [];
-    for (i = 0; i < timeSlots.length; i += 1){
+    for (i = 0; i < timeSlots.length; i += 1) {
         let value = getRandomInt(min, max)
         let cookieSales = Math.floor(value * avgcookies);
         arraySales.push(cookieSales);
     }
-        console.log(arraySales);
-        return arraySales;
+    console.log(arraySales);
+    return arraySales;
 }
 
 CookieStand.stores = [];
@@ -46,10 +46,10 @@ function CookieStand(location, hourlySales) {
 
 
 // display cookie stand data
-let renderHeader = function() {
+let renderHeader = function () {
 
-// rows for the table
-// 'store-container' is the div id in HTML
+    // rows for the table
+    // 'store-container' is the div id in HTML
     const profileContainer = document.getElementById('store-container');
     const article = createChild('article', profileContainer);
     const table = createChild('table', article, undefined, 'cookieTable');
@@ -75,12 +75,12 @@ let renderHeader = function() {
 
 
 // CookieStand Constructor
-CookieStand.prototype.render = function(){
+CookieStand.prototype.render = function () {
     let cityTotal = 0;
     const table = document.getElementById('cookieTable');
- 
 
-// data row (adds cookies sold into data cells)
+
+    // data row (adds cookies sold into data cells)
     const dataRow = createChild('tr', table);
 
     createChild('td', dataRow, this.location);
@@ -92,7 +92,7 @@ CookieStand.prototype.render = function(){
             createChild('td', dataRow, cityTotal);
         }
     }
-    
+
 }
 
 
@@ -101,9 +101,9 @@ renderfooter = function () {
     const table = document.getElementById('cookieTable');
     const tr = createChild('tr', table, 'Hourly Total');
     let total = 0;
-    for (let i = 0; i < timeSlots.length; i+= 1) {
+    for (let i = 0; i < timeSlots.length; i += 1) {
         let timeTotal = 0
-        for (let j = 0; j < CookieStand.stores.length; j+= 1) {
+        for (let j = 0; j < CookieStand.stores.length; j += 1) {
             timeTotal += CookieStand.stores[j].hourlySales[i];
 
         }
@@ -121,10 +121,10 @@ function createChild(tag, parent, text, id) {
     const child = document.createElement(tag);
     parent.appendChild(child);
 
-    if(text !== undefined) {
+    if (text !== undefined) {
         child.textContent = text;
     }
-    if(id !== undefined) {
+    if (id !== undefined) {
         child.setAttribute('id', id);
     }
     return child;
@@ -142,22 +142,30 @@ let lima = new CookieStand('Lima', hourlySales(2, 16, 4.6));
 // add new location with form
 
 const cookieStandForm = document.getElementById('cookie-form');
+cookieStandForm.addEventListener('submit', addcookieStandHandler);
 
 function addcookieStandHandler(event) {
     event.preventDefault();
 
     const newStandLocation = event.target.newStandLocation.value;
-    const newStandMinCookies = event.target.newStandMinCookies.value;
-    const newStandMaxCookies = event.target.newStandMaxCookies.value;
-    const avgCookiesSold = event.target.avgCookiesSold.value;
-
+    const newStandMinCookies = parseInt(event.target.newStandMinCookies.value);
+    const newStandMaxCookies = parseInt(event.target.newStandMaxCookies.value);
+    const avgCookiesSold = parseInt(event.target.avgCookiesSold.value);
+console.log(newStandMinCookies, newStandMaxCookies, avgCookiesSold, typeof avgCookiesSold)
     const newCookieStand = new CookieStand(newStandLocation, hourlySales(newStandMinCookies, newStandMaxCookies, avgCookiesSold));
-    CookieStand.push(newCookieStand);
-    table.innerHTML ='';
-    createHeaderRow();
-    createHeaderRow();
+    // CookieStand.stores.push(newCookieStand);
+    console.log('new cookie stand', newCookieStand);
+
+    const table = document.getElementById('store-container');
+    table.innerHTML = '';
+    renderHeader();
+    for (let i = 0; i < CookieStand.stores.length; i += 1){
+        CookieStand.stores[i].render();
+    }
+    renderfooter();
     event.target.reset();
 }
+
 
 renderHeader();
 seattle.render();
@@ -166,3 +174,4 @@ dubai.render();
 paris.render();
 lima.render();
 renderfooter();
+

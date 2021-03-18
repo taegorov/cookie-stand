@@ -148,13 +148,11 @@ function addcookieStandHandler(event) {
     event.preventDefault();
 
     const newStandLocation = event.target.newStandLocation.value;
-    const newStandMinCookies = parseInt(event.target.newStandMinCookies.value);
-    const newStandMaxCookies = parseInt(event.target.newStandMaxCookies.value);
-    const avgCookiesSold = parseInt(event.target.avgCookiesSold.value);
-console.log(newStandMinCookies, newStandMaxCookies, avgCookiesSold, typeof avgCookiesSold)
+    const newStandMinCookies = parseInt(event.target.newStandMinCookies.value) || '';
+    const newStandMaxCookies = parseInt(event.target.newStandMaxCookies.value) || '';
+    const avgCookiesSold = parseInt(event.target.avgCookiesSold.value) || '';
+
     const newCookieStand = new CookieStand(newStandLocation, hourlySales(newStandMinCookies, newStandMaxCookies, avgCookiesSold));
-    // CookieStand.stores.push(newCookieStand);
-    console.log('new cookie stand', newCookieStand);
 
     const table = document.getElementById('store-container');
     table.innerHTML = '';

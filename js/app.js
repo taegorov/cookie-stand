@@ -116,11 +116,11 @@ let dubai = new CookieStand('Dubai', hourlySales(11, 38, 3.7));
 let paris = new CookieStand('Paris', hourlySales(20, 38, 2.3));
 let lima = new CookieStand('Lima', hourlySales(2, 16, 4.6));
 
-
+// Hourly totals
 renderfooter = function () {
     const table = document.getElementById('cookieTable');
     const tr = createChild('tr', table, 'Hourly Total');
-    let total = 0
+    let total = 0;
     for (let i = 0; i < timeSlots.length; i+= 1) {
         let timeTotal = 0
         for (let j = 0; j < CookieStand.stores.length; j+= 1) {
@@ -128,7 +128,7 @@ renderfooter = function () {
 
         }
         total += timeTotal;
-        console.log(timeTotal);
+        // console.log(timeTotal);
         createChild('td', tr, timeTotal);
     }
     createChild('td', tr, total);

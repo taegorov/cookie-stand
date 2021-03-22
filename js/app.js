@@ -157,7 +157,7 @@ function addcookieStandHandler(event) {
     const table = document.getElementById('store-container');
     table.innerHTML = '';
     renderHeader();
-    for (let i = 0; i < CookieStand.stores.length; i += 1){
+    for (let i = 0; i < CookieStand.stores.length; i += 1) {
         CookieStand.stores[i].render();
     }
     renderfooter();

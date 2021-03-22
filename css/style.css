@@ -15,7 +15,7 @@ header {
   border: 3px solid rgb(51,50,42);
   display: flex;
   padding: 1rem;
-  justify-content: space-evenly;
+  justify-content: space-between;
   /* align-items: center; */
   position: fixed;
   width: 100%;

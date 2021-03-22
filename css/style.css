@@ -31,6 +31,10 @@ header {
   box-shadow: 0px 5px 12px #888888;
 }
 
+h1 {
+  margin: auto;
+}
+
 #salmon {
   display: flex;
   margin-top: 140px ;
@@ -88,6 +92,8 @@ main h2 {
 #salesInfo {
   font-size: 3rem;
   font-family: 'Della Respira', serif;
+  align-items: center;
+  margin: auto;
 }
 
 

@@ -3,14 +3,20 @@
   align-items: center;
   box-sizing: border-box;
 }
+
+body {
+  background-color: cornsilk;
+}
+
 #store-container {
   display: flex;
 }
 
 header {
-  font-family: Tahoma, sans-serif;
-  color: black;
+  font-family: 'Montserrat', sans-serif;
+  color:rgb(107,83,64);
   font-size: 3.5rem;
+  font-weight: bold;
   background-color: rgb(236,204,140);
   border: 3px solid rgb(51,50,42);
   display: flex;
@@ -21,6 +27,8 @@ header {
   width: 100%;
   top: 0;
   height: 6rem;
+  /* box shadow learned on w3Schools */
+  box-shadow: 0px 5px 12px #888888;
 }
 
 #salmon {
@@ -34,6 +42,7 @@ header {
 #boxProfiles {
   display: flex;
   align-items: flex-start;
+  
 }
 
 #boxProfiles article {
@@ -44,6 +53,8 @@ header {
   border: 2px solid rgb(241, 202, 154);
   border-radius: 5px;
   border: 3px solid rgb(51,50,42);
+  color: rgb(196,92,68);
+  box-shadow: 1px 1px 2px black, 0 0 25px rgb(196,92,68), 0 0 5px rgb(236,204,140);
 }
 
 #boxProfiles h3 {
@@ -52,26 +63,31 @@ header {
 }
 
 #boxProfiles p, a {
-  color: rgb(51,50,42);
+  /* color: rgb(51,50,42); */
+  color: rgb(112,114,85);
   font-size: 1rem;
   margin-top: 10px;
   margin-bottom: 10px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
 }
 
 #boxProfiles img {
   margin-top: 4rem;
   max-width: 20rem;
   /* max-height: 15rem; */
-  margin-left: 3rem;
+  margin-left: 2rem;
   /* margin-right: auto; */
 }
 
 main h2 {
   font-size: 2rem;
+  font-family: 'Della Respira', serif;
 }
 
-h1 {
+#salesInfo {
   font-size: 3rem;
+  font-family: 'Della Respira', serif;
 }
 
 
@@ -89,11 +105,15 @@ h1 {
   padding: 10px;
   border-radius: 10px;
   border: 3px solid rgb(51,50,42);
+  box-shadow: 1px 1px 2px black, 0 0 25px rgb(196,92,68), 0 0 5px rgb(236,204,140);
+  
 }
 
 table, th, td, tr {
   border: 2px solid rgb(51,50,42);
   background-color: rgb(236,204,140);
+  font-family: 'Roboto Condensed', sans-serif;
+  padding: 7px;
 }
 
 table {
@@ -106,4 +126,5 @@ table {
 #cookie-form {
   background-color: rgb(236,204,140);
   border: 3px solid rgb(51,50,42);
+  
 }
